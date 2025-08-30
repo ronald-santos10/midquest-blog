@@ -1,44 +1,37 @@
 ---
+import { getRecentPosts } from "../../lib/api";
 import Button from "../button.astro";
 import CardPost from "../post/cardPost.astro";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale/pt-BR";
+
+const posts = await getRecentPosts(5);
 ---
 
 <div class="flex flex-col gap-8">
   <h2 class="text-xl lg:text-3xl font-semibold">Posts recentes</h2>
   <ul class="flex flex-wrap items-center gap-6 lg:gap-8">
-    <li>
-      <CardPost
-        cover={"/post.png"}
-        author={"Ronald Santos Silva"}
-        date={"29/08/25"}
-        title={"As pessoas realmente podem mudar?"}
-        desc={"Conheça mais da jornada de rendenção de Thorfinn"}
-        category={"Animações"}
-        slug={"/"}
-      />
-    </li>
-    <li>
-      <CardPost
-        cover={"/post.png"}
-        author={"Ronald Santos Silva"}
-        date={"29/08/25"}
-        title={"As pessoas realmente podem mudar?"}
-        desc={"Conheça mais da jornada de rendenção de Thorfinn"}
-        category={"Animações"}
-        slug={"/"}
-      />
-    </li>
-    <li>
-      <CardPost
-        cover={"/post.png"}
-        author={"Ronald Santos Silva"}
-        date={"29/08/25"}
-        title={"As pessoas realmente podem mudar?"}
-        desc={"Conheça mais da jornada de rendenção de Thorfinn"}
-        category={"Animações"}
-        slug={"/"}
-      />
-    </li>
+    {
+      posts.length > 0 ? (
+        posts.map((post: any) => (
+          <li>
+            <CardPost
+              cover={`http://localhost:1337${post.cover.formats.small.url}`}
+              author={post.author.name}
+              date={format(new Date(post.publishedAt), "dd/MM/yy", {
+                locale: ptBR,
+              })}
+              title={post.title}
+              desc={post.description}
+              category={post.category.title}
+              slug={`/blog/${post.slug}`}
+            />
+          </li>
+        ))
+      ) : (
+        <p>Nenhum post recente encontrado.</p>
+      )
+    }
   </ul>
   <Button label={"Ver todos os posts"} link={"/blog"} />
 </div>

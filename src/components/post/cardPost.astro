@@ -7,10 +7,10 @@ const { slug, cover, author, date, title, desc, category } = Astro.props;
 <div
   class="w-full flex flex-col lg:flex-row lg:justify-between gap-6 items-start"
 >
-  <a href={slug} class="lg:w-1/2">
-    <img src={cover} alt={title}/>
+  <a href={slug} >
+    <img src={cover} alt={title} />
   </a>
-  <div class="lg:w-1/2 flex flex-col items-start gap-4">
+  <div class="lg:w-[600px] flex flex-col items-start gap-4">
     <div class="flex flex-wrap gap-2 lg:gap-4 text-base">
       <span>{author}</span>
       <span>{date}</span>

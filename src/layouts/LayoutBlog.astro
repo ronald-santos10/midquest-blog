@@ -2,6 +2,8 @@
 import { AstroSEO } from "astro-seo-plugin";
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
+
+const { title, description, cover, category, slug } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,21 +13,21 @@ import Footer from "../components/footer.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>title</title>
+    <title>{title}</title>
     <AstroSEO
-      title="title"
-      description="description"
+      title={title}
+      description={description}
       openGraph={{
-        title: "title",
-        description: "description",
-        image: "cover",
-        type: "page",
+        title: title,
+        description: description,
+        image: cover,
+        type: "article",
       }}
       jsonLd={{
-        "@type": "page",
-        name: "title",
-        description: "description",
-        url: `https://www.midquest.com.br/post/title`,
+        "@type": "Article",
+        name: title,
+        description: description,
+        url: `https://www.midquest.com.br/blog/${slug}`,
       }}
       robots={{
         index: true,
@@ -35,12 +37,12 @@ import Footer from "../components/footer.astro";
         maxSnippet: 150,
       }}
       additionalLinkTags={[
-        { rel: "canonical", href: `https://www.midquest.com.br/post/title` },
+        { rel: "canonical", href: `https://www.midquest.com.br/blog/${slug}` },
       ]}
       additionalMetaTags={[
         {
           name: "keywords",
-          content: `category`,
+          content: category,
         },
       ]}
     />
