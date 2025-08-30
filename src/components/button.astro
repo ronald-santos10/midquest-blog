@@ -1,0 +1,12 @@
+---
+const { label, link } = Astro.props;
+---
+
+<div class="inline-flex">
+  <a
+    href={link}
+    class="flex items-center justify-center py-2 px-6 bg-gray text-white rounded-lg"
+  >
+    {label}
+  </a>
+</div>

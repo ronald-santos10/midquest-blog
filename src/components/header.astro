@@ -1,0 +1,30 @@
+---
+import HeaderMobile from "./headerMobile.astro";
+---
+
+<div class="border-t-8 border-t-blue py-6 border-b-2 border-b-thinborder">
+  <div
+    class="mx-auto max-w-5xl px-4 md:px-6 xl:px-0 flex items-center justify-between"
+  >
+    <a href="/">
+      <img src="/logo-black.svg" alt="Logo Midquest" />
+    </a>
+    <div class="hidden">
+      <HeaderMobile />
+    </div>
+    <nav class="hidden md:flex md:flex-row gap-6">
+      <a
+        class="text-base hover:font-bold active:font-bold transition-all"
+        href="/">Home</a
+      >
+      <a
+        class="text-base hover:font-bold active:font-bold transition-all"
+        href="/about">Sobre</a
+      >
+      <a
+        class="text-base hover:font-bold active:font-bold transition-all"
+        href="/blog">Blog</a
+      >
+    </nav>
+  </div>
+</div>

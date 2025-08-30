@@ -1,0 +1,14 @@
+---
+import HeroBlog from "../../components/blog/heroBlog.astro";
+import Posts from "../../components/blog/posts.astro";
+import Categorias from "../../components/categorias.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="flex flex-col gap-12 xl:gap-24">
+    <HeroBlog />
+    <Categorias />
+    <Posts />
+  </div>
+</Layout>
