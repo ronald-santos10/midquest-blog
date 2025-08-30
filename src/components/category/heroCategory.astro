@@ -1,0 +1,13 @@
+---
+const { category } = Astro.props;
+---
+
+<div class="flex flex-col gap-4 md:gap-6">
+  <h1 class="text-4xl lg:text-5xl xl:text-6xl">
+    Você está navegando em <strong>{category}</strong>.
+  </h1>
+  <p class="text-base md:text-lg lg:text-xl lg:w-4/5">
+    Você pode selecionar outra categoria ou clicar em “Limpar filtro” para
+    voltar a ver todos os posts.
+  </p>
+</div>

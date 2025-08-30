@@ -1,13 +1,13 @@
 ---
 import Button from "../button.astro";
-import CardPostHome from "./cardPostHome.astro";
+import CardPost from "../post/cardPost.astro";
 ---
 
 <div class="flex flex-col gap-8">
   <h2 class="text-xl lg:text-3xl font-semibold">Posts recentes</h2>
   <ul class="flex flex-wrap items-center gap-6 lg:gap-8">
     <li>
-      <CardPostHome
+      <CardPost
         cover={"/post.png"}
         author={"Ronald Santos Silva"}
         date={"29/08/25"}
@@ -18,7 +18,7 @@ import CardPostHome from "./cardPostHome.astro";
       />
     </li>
     <li>
-      <CardPostHome
+      <CardPost
         cover={"/post.png"}
         author={"Ronald Santos Silva"}
         date={"29/08/25"}
@@ -29,7 +29,7 @@ import CardPostHome from "./cardPostHome.astro";
       />
     </li>
     <li>
-      <CardPostHome
+      <CardPost
         cover={"/post.png"}
         author={"Ronald Santos Silva"}
         date={"29/08/25"}

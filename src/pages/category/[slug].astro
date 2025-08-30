@@ -1,0 +1,21 @@
+---
+import { ArrowLeft } from "@lucide/astro/icons/index";
+import Categorias from "../../components/categorias.astro";
+import HeroCategory from "../../components/category/heroCategory.astro";
+import PostsCategory from "../../components/category/postsCategory.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="flex flex-col gap-12 xl:gap-24">
+    <HeroCategory category={"Animações"} />
+    <div>
+      <a href="/blog" class="flex gap-2">
+        <ArrowLeft />
+        <span class="text-xl">Limpar Filtro</span>
+      </a>
+      <Categorias />
+    </div>
+    <PostsCategory />
+  </div>
+</Layout>
