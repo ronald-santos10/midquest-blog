@@ -12,6 +12,16 @@ import Footer from "../components/footer.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Midquest</title>
+
+    <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
+    <script>
+      (window as any).Brevo = (window as any).Brevo || [];
+      (window as any).Brevo.push([
+        "init",
+        { client_key: "lu37riesyeqqvqjzf90uv2yv" },
+      ]);
+    </script>
+
     <AstroSEO
       title="Midquest"
       description="Aqui, você encontra reflexões, análises e memórias sobre filmes, séries, jogos, desenhos e arte em geral."
