@@ -1,39 +1,56 @@
 ---
 import CardPost from "../post/cardPost.astro";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale/pt-BR";
+
+const { posts = [] } = Astro.props;
+const apiUrl = import.meta.env.PUBLIC_API_URL;
 ---
 
-<ul class="gap-6 flex flex-wrap items-start justify-start">
-  <li>
-    <CardPost
-      cover={"/post.png"}
-      author={"Ronald Santos Silva"}
-      date={"29/08/25"}
-      title={"As pessoas realmente podem mudar?"}
-      desc={"Conheça mais da jornada de rendenção de Thorfinn"}
-      category={"Animações"}
-      slug={"/"}
-    />
-  </li>
-  <li>
-    <CardPost
-      cover={"/post.png"}
-      author={"Ronald Santos Silva"}
-      date={"29/08/25"}
-      title={"As pessoas realmente podem mudar?"}
-      desc={"Conheça mais da jornada de rendenção de Thorfinn"}
-      category={"Animações"}
-      slug={"/"}
-    />
-  </li>
-  <li>
-    <CardPost
-      cover={"/post.png"}
-      author={"Ronald Santos Silva"}
-      date={"29/08/25"}
-      title={"As pessoas realmente podem mudar?"}
-      desc={"Conheça mais da jornada de rendenção de Thorfinn"}
-      category={"Animações"}
-      slug={"/"}
-    />
-  </li>
-</ul>
+{
+  posts.length === 0 ? (
+    <p class="text-center text-gray-500">
+      Nenhum post encontrado nesta categoria.
+    </p>
+  ) : (
+    <ul class="gap-6 flex flex-wrap items-start justify-start">
+      {posts.map(
+        (post: {
+          cover: any;
+          author: any;
+          publishedAt: any;
+          title: any;
+          description: any;
+          category: any;
+          slug: any;
+        }) => {
+          const {
+            cover,
+            author,
+            publishedAt,
+            title,
+            description,
+            category,
+            slug,
+          } = post;
+
+          return (
+            <li>
+              <CardPost
+                cover={`${apiUrl}${post.cover.formats.small.url}`}
+                author={post.author.name}
+                date={format(new Date(post.publishedAt), "dd/MM/yy", {
+                  locale: ptBR,
+                })}
+                title={post.title}
+                desc={post.description}
+                category={post.category.title}
+                slug={`/blog/${post.slug}`}
+              />
+            </li>
+          );
+        }
+      )}
+    </ul>
+  )
+}

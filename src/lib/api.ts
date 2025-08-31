@@ -1,6 +1,7 @@
 import axios from "axios";
+import type { Post } from './types';
 
-const API_BASE_URL = "http://localhost:1337/api";
+const API_BASE_URL = `${import.meta.env.PUBLIC_API_URL}/api`;
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -8,7 +9,9 @@ const api = axios.create({
 
 export const getRecentPosts = async (limit: number = 5) => {
   try {
-    const response = await api.get(`/posts?sort=publishedAt:desc&pagination[limit]=${limit}&populate=*`);
+    const response = await api.get(
+      `/posts?sort=publishedAt:desc&pagination[limit]=${limit}&populate=*`
+    );
 
     return response.data.data;
   } catch (error) {
@@ -40,7 +43,7 @@ export const getAllPosts = async () => {
 export const getPostsByCategory = async (categorySlug: string) => {
   try {
     const response = await api.get(
-      `/posts?populate=cover,category,author&filters[category][slug][$eq]=${categorySlug}`
+      `/posts?populate=*&filters[category][slug][$eq]=${categorySlug}`
     );
     return response.data.data;
   } catch (error) {
@@ -49,12 +52,13 @@ export const getPostsByCategory = async (categorySlug: string) => {
   }
 };
 
-export const getPostBySlug = async (slug: string) => {
+export const getPostBySlug = async (slug: string): Promise<Post | null> => {
   try {
-    const response = await api.get(
-      `/posts?populate=cover,category,author&filters[slug][$eq]=${slug}`
-    );
-    return response.data.data[0];
+    const response = await api.get(`/posts?populate=*&filters[slug][$eq]=${slug}`);
+    
+    const post = response.data.data[0] as Post | undefined;
+
+    return post ?? null;
   } catch (error) {
     console.error(`Erro ao buscar o post com slug ${slug}:`, error);
     return null;

@@ -5,6 +5,8 @@ import { ptBR } from "date-fns/locale/pt-BR";
 import { getAllPosts } from "../../lib/api";
 
 const postsBlog = await getAllPosts();
+
+const apiUrl = import.meta.env.PUBLIC_API_URL;
 ---
 
 <ul class="flex flex-wrap items-center gap-6 lg:gap-8">
@@ -13,7 +15,7 @@ const postsBlog = await getAllPosts();
       postsBlog.map((post: any) => (
         <li>
           <CardPost
-            cover={`http://localhost:1337${post.cover.formats.small.url}`}
+            cover={`${apiUrl}${post.cover.formats.small.url}`}
             author={post.author.name}
             date={format(new Date(post.publishedAt), "dd/MM/yy", {
               locale: ptBR,

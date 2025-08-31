@@ -4,18 +4,40 @@ import Categorias from "../../components/categorias.astro";
 import HeroCategory from "../../components/category/heroCategory.astro";
 import PostsCategory from "../../components/category/postsCategory.astro";
 import Layout from "../../layouts/Layout.astro";
+
+import { getCategories, getPostsByCategory } from "../../lib/api";
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+  return categories.map((cat: { slug: any }) => ({
+    params: { slug: cat.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+const posts = await getPostsByCategory(slug);
+
+const categories = await getCategories();
+
+const currentCategory = categories.find(
+  (cat: { slug: any }) => cat.slug === slug
+);
+const categoryName = currentCategory ? currentCategory.title : "Categoria";
 ---
 
 <Layout>
   <div class="flex flex-col gap-12 xl:gap-24">
-    <HeroCategory category={"Animações"} />
+    <HeroCategory category={categoryName} />
+
     <div>
       <a href="/blog" class="flex gap-2">
         <ArrowLeft />
         <span class="text-xl">Limpar Filtro</span>
       </a>
-      <Categorias />
+      <Categorias categories={categories} />
     </div>
-    <PostsCategory />
+
+    <PostsCategory posts={posts} />
   </div>
 </Layout>
