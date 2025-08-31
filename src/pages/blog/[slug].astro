@@ -1,6 +1,5 @@
 ---
 import CategorySmall from "../../components/categorySmall.astro";
-import Subscribe from "../../components/subscribe.astro";
 import LayoutBlog from "../../layouts/LayoutBlog.astro";
 import { getAllPosts } from "../../lib/api";
 import type { Post } from "../../lib/types";
@@ -61,7 +60,5 @@ const date = new Date(publishedAt).toLocaleDateString("pt-BR", {
     <p class="text-base md:text-lg text-gray-700">
       {bodyBlog}
     </p>
-
-    <Subscribe />
   </div>
 </LayoutBlog>
