@@ -6,10 +6,14 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://midquest.com.br",
-  integrations: [tailwind(), partytown({
-    config: {
-      forward: ["dataLayer.push"],
-    },
-  }), sitemap()],
+  integrations: [
+    tailwind(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+    sitemap(),
+  ],
   // ...
 });
