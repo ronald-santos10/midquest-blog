@@ -14,6 +14,15 @@ const { title, description, cover, category, slug } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
 
     <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
     <script>
@@ -24,7 +33,6 @@ const { title, description, cover, category, slug } = Astro.props;
       ]);
     </script>
 
-    <!-- Google tag (gtag.js) -->
     <script
       type="text/partytown"
       async
@@ -35,7 +43,6 @@ const { title, description, cover, category, slug } = Astro.props;
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-K2N6ZR5M2B");
     </script>
 
@@ -88,7 +95,6 @@ const { title, description, cover, category, slug } = Astro.props;
 </html>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
   body {
     margin: 0;
     width: 100%;

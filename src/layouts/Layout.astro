@@ -7,72 +7,56 @@ import Footer from "../components/footer.astro";
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Midquest</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Midquest</title>
 
-    <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
-    <script>
-      (window as any).Brevo = (window as any).Brevo || [];
-      (window as any).Brevo.push([
-        "init",
-        { client_key: "lu37riesyeqqvqjzf90uv2yv" },
-      ]);
-    </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      type="text/partytown"
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-K2N6ZR5M2B"></script>
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'"
+  />
 
-      gtag("config", "G-K2N6ZR5M2B");
-    </script>
+  <script src="https://cdn.brevo.com/js/sdk-loader.js" async></script>
+  <script>
+    (window as any).Brevo = (window as any).Brevo || [];
+    (window as any).Brevo.push(["init", { client_key: "lu37riesyeqqvqjzf90uv2yv" }]);
+  </script>
 
-    <AstroSEO
-      title="Midquest"
-      description="Aqui, você encontra reflexões, análises e memórias sobre filmes, séries, jogos, desenhos e arte em geral."
-      openGraph={{
-        title: "Midquest",
-        description:
-          "Aqui, você encontra reflexões, análises e memórias sobre filmes, séries, jogos, desenhos e arte em geral.",
-        image: "/opengraph.png",
-        type: "website",
-      }}
-      jsonLd={{
-        "@type": "WebSite",
-        name: "Midquest",
-        description:
-          "Aqui, você encontra reflexões, análises e memórias sobre filmes, séries, jogos, desenhos e arte em geral.",
-        url: "https://www.midquest.com.br",
-      }}
-      robots={{
-        index: true,
-        follow: true,
-        noarchive: false,
-        nosnippet: false,
-        maxSnippet: 150,
-      }}
-      additionalLinkTags={[
-        { rel: "canonical", href: "https://www.midquest.com.br" },
-      ]}
-      additionalMetaTags={[
-        {
-          name: "keywords",
-          content:
-            "blog, nerd, geek, jogos, animes, livros, filmes, séries, post, leitura, jogar",
-        },
-      ]}
-    />
-  </head>
+  <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-K2N6ZR5M2B"></script>
+  <script type="text/partytown">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-K2N6ZR5M2B");
+  </script>
+
+  <AstroSEO
+    title="Midquest"
+    description="Aqui, você encontra reflexões, análises e memórias sobre filmes, séries, jogos, desenhos e arte em geral."
+    openGraph={{
+      title: "Midquest",
+      description: "Aqui, você encontra reflexões, análises e memórias sobre filmes, séries, jogos, desenhos e arte em geral.",
+      image: "/opengraph.png",
+      type: "website",
+    }}
+    jsonLd={{
+      "@type": "WebSite",
+      name: "Midquest",
+      description: "Aqui, você encontra reflexões, análises e memórias sobre filmes, séries, jogos, desenhos e arte em geral.",
+      url: "https://www.midquest.com.br",
+    }}
+    robots={{ index: true, follow: true }}
+    additionalLinkTags={[{ rel: "canonical", href: "https://www.midquest.com.br" }]}
+    additionalMetaTags={[{ name: "keywords", content: "blog, nerd, geek, jogos, animes, livros, filmes, séries" }]}
+  />
+</head>
   <body>
     <header>
       <Header />
@@ -89,7 +73,6 @@ import Footer from "../components/footer.astro";
 </html>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
   body {
     margin: 0;
     width: 100%;
