@@ -22,6 +22,21 @@ import Footer from "../components/footer.astro";
       ]);
     </script>
 
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-K2N6ZR5M2B"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-K2N6ZR5M2B");
+    </script>
+
     <AstroSEO
       title="Midquest"
       description="Aqui, você encontra reflexões, análises e memórias sobre filmes, séries, jogos, desenhos e arte em geral."

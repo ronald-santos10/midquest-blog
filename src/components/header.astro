@@ -7,11 +7,14 @@ import HeaderMobile from "./headerMobile.astro";
     class="mx-auto max-w-5xl px-4 md:px-6 xl:px-0 flex items-center justify-between"
   >
     <a href="/">
-      <img src="/logo-black.svg" alt="Logo Midquest" />
+      <img src="/logo-black.svg" alt="Logo Midquest" class="h-8" />
     </a>
-    <div class="hidden">
+
+    <div class="md:hidden">
       <HeaderMobile />
     </div>
+
+    <!-- Desktop -->
     <nav class="hidden md:flex md:flex-row gap-6">
       <a
         class="text-base hover:font-bold active:font-bold transition-all"

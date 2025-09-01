@@ -1,15 +1,48 @@
 ---
-
+import { Menu, X } from "@lucide/astro/icons/index";
 ---
 
-<div id="menu" class="bg-white w-full h-80 fixed top-20 left-0 z-50 transition-all">
-  <nav class="flex flex-col gap-8 text-2xl px-4 py-8">
-    <a class="hover:font-bold active:font-bold transition-all" href="/">Home</a>
-    <a class="hover:font-bold active:font-bold transition-all" href="/about"
-      >Sobre</a
+<div>
+  <button id="menu-btn" aria-label="Abrir Menu">
+    <Menu />
+  </button>
+
+  <nav
+    id="mobile-menu"
+    class="border-t-8 border-t-blue px-4 fixed inset-0 bg-white flex flex-col items-start justify-start space-y-8 text-2xl font-semibold transform translate-x-full transition-transform duration-300"
+  >
+    <div
+      class="py-6 w-full flex justify-between items-center border-b-2 border-b-thinborder"
     >
-    <a class="hover:font-bold active:font-bold transition-all" href="/blog"
-      >Blog</a
-    >
+      <a href="/">
+        <img src="/logo-black.svg" alt="Logo Midquest" class="h-8" />
+      </a>
+
+      <button id="close-btn" aria-label="Fechar Menu">
+        <X />
+      </button>
+    </div>
+
+    <a href="/" class="font-normal">Home</a>
+    <a href="/about" class="font-normal">Sobre</a>
+    <a href="/blog" class="font-normal">Blog</a>
   </nav>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const closeBtn = document.getElementById("close-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (menuBtn && closeBtn && mobileMenu) {
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("translate-x-full");
+        mobileMenu.classList.add("translate-x-0");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("translate-x-0");
+        mobileMenu.classList.add("translate-x-full");
+      });
+    }
+  </script>
 </div>

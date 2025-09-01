@@ -24,6 +24,21 @@ const { title, description, cover, category, slug } = Astro.props;
       ]);
     </script>
 
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-K2N6ZR5M2B"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-K2N6ZR5M2B");
+    </script>
+
     <AstroSEO
       title={title}
       description={description}
