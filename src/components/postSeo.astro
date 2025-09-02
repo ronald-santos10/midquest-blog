@@ -16,6 +16,7 @@ const {
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={url} />
+  <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
   <meta property="og:title" content={title} />
@@ -24,42 +25,39 @@ const {
   <meta property="og:url" content={url} />
   <meta property="og:image" content={image} />
 
-  <!-- Twitter -->
+  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={image} />
 
-  <!-- Robots -->
-  <meta name="robots" content="index, follow" />
-
-  <!-- JSON-LD (Schema Article) -->
+  <!-- JSON-LD Article -->
   <script type="application/ld+json">
-  {`{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "${url}"
-    },
-    "headline": "${title}",
-    "description": "${description}",
-    "image": "${image}",
-    "author": {
-      "@type": "Person",
-      "name": "${author}"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Midquest",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.midquest.com.br/logo-black.svg"
-      }
-    },
-    "articleSection": "${category}",
-    "datePublished": "${datePublished}",
-    "dateModified": "${dateModified}"
-  }`}
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": url
+      },
+      "headline": title,
+      "description": description,
+      "image": image,
+      "author": {
+        "@type": "Person",
+        "name": author
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Midquest",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.midquest.com.br/logo-black.svg"
+        }
+      },
+      "articleSection": category,
+      "datePublished": datePublished,
+      "dateModified": dateModified
+    })}
   </script>
 </head>

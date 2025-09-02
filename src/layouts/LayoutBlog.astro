@@ -13,6 +13,7 @@ const {
   publishedAt,
   updatedAt,
 } = Astro.props;
+
 const url = `https://www.midquest.com.br/post/${slug}`;
 const image = cover || "/opengraph.png";
 const dateModified = updatedAt || publishedAt;
@@ -57,6 +58,7 @@ const dateModified = updatedAt || publishedAt;
       gtag("config", "G-K2N6ZR5M2B");
     </script>
 
+    <!-- SEO do post -->
     <PostSeo
       title={title}
       description={description}

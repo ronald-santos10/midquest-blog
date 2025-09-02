@@ -11,10 +11,10 @@ const {
   <!-- SEO Básico -->
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="keywords" content="blog, geek, nerd, cultura pop, jogos, animes, livros, filmes, séries" />
   <link rel="canonical" href={url} />
+  <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <!-- Open Graph -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
@@ -27,17 +27,14 @@ const {
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={image} />
 
-  <!-- Robots -->
-  <meta name="robots" content="index, follow" />
-
-  <!-- JSON-LD (Google Rich Snippets) -->
+  <!-- JSON-LD WebSite -->
   <script type="application/ld+json">
-    {
+    {JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "url": "{url}",
+      "url": url,
       "name": "Midquest",
-      "description": "{description}",
+      "description": description,
       "publisher": {
         "@type": "Organization",
         "name": "Midquest",
@@ -46,6 +43,6 @@ const {
           "url": "https://www.midquest.com.br/logo-black.svg"
         }
       }
-    }
+    })}
   </script>
 </head>
