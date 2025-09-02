@@ -4,7 +4,10 @@ const {
   description,
   url,
   image = "/opengraph.png",
+  datePublished,
+  dateModified = datePublished,
   author = "Equipe Midquest",
+  category = "",
 } = Astro.props;
 ---
 
@@ -32,30 +35,31 @@ const {
 
   <!-- JSON-LD (Schema Article) -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{url}"
-      },
-      "headline": "{title}",
-      "description": "{description}",
-      "image": "{image}",
-      "author": {
-        "@type": "Person",
-        "name": "{author}"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Midquest",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.midquest.com.br/logo-black.svg"
-        }
-      },
-      "datePublished": "{datePublished}",
-      "dateModified": "{dateModified}"
-    }
+  {`{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "${url}"
+    },
+    "headline": "${title}",
+    "description": "${description}",
+    "image": "${image}",
+    "author": {
+      "@type": "Person",
+      "name": "${author}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Midquest",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.midquest.com.br/logo-black.svg"
+      }
+    },
+    "articleSection": "${category}",
+    "datePublished": "${datePublished}",
+    "dateModified": "${dateModified}"
+  }`}
   </script>
 </head>
