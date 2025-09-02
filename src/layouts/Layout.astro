@@ -1,7 +1,7 @@
 ---
-import { AstroSEO } from "astro-seo-plugin";
 import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
+import Seo from "../components/seo.astro";
 ---
 
 <!doctype html>
@@ -43,44 +43,9 @@ import Footer from "../components/footer.astro";
       gtag("js", new Date());
       gtag("config", "G-K2N6ZR5M2B");
     </script>
-
-    <AstroSEO
-      <SEO
-      title="Midquest - Blog Geek de Filmes, Séries, Jogos, Animes e Cultura Pop"
-      description="O Midquest traz análises, críticas e reflexões sobre filmes, séries, animes, jogos, livros e todo o universo geek e nerd."
-      openGraph={{
-        title: "Midquest - Cultura Geek e Entretenimento",
-        description:
-          "Blog geek e nerd com artigos sobre filmes, séries, animes, jogos, livros e cultura pop.",
-        image: "/opengraph.png",
-        type: "website",
-      }}
-      jsonLd={{
-        "@type": "WebSite",
-        name: "Midquest",
-        description:
-          "Blog geek e nerd com artigos sobre filmes, séries, animes, jogos, livros e cultura pop.",
-        url: "https://www.midquest.com.br",
-        publisher: {
-          "@type": "Organization",
-          name: "Midquest",
-          logo: "https://www.midquest.com.br/logo-black.svg",
-        },
-      }}
-      robots={{ index: true, follow: true }}
-      additionalLinkTags={[
-        { rel: "canonical", href: "https://www.midquest.com.br" },
-      ]}
-      additionalMetaTags={[
-        {
-          name: "keywords",
-          content:
-            "blog geek, blog nerd, cultura pop, filmes, séries, animes, jogos, livros, personagens",
-        },
-      ]}
-    />
   </head>
   <body>
+    <Seo />
     <header>
       <Header />
     </header>

@@ -1,0 +1,51 @@
+---
+const {
+  title = "Midquest - Blog Geek sobre Filmes, Séries, Jogos e Cultura Pop",
+  description = "Reflexões, análises e memórias sobre filmes, séries, jogos, desenhos, livros e arte em geral.",
+  url = "https://www.midquest.com.br",
+  image = "/opengraph.png",
+} = Astro.props;
+---
+
+<head>
+  <!-- SEO Básico -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content="blog, geek, nerd, cultura pop, jogos, animes, livros, filmes, séries" />
+  <link rel="canonical" href={url} />
+
+  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={url} />
+  <meta property="og:image" content={image} />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image} />
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow" />
+
+  <!-- JSON-LD (Google Rich Snippets) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "{url}",
+      "name": "Midquest",
+      "description": "{description}",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Midquest",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.midquest.com.br/logo-black.svg"
+        }
+      }
+    }
+  </script>
+</head>
