@@ -37,32 +37,33 @@ const {
 
   <!-- JSON-LD Article -->
   <script
-  type="application/ld+json"
-  set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": url
-    },
-    "headline": title,
-    "description": description,
-    "image": image,
-    "author": {
-      "@type": "Person",
-      "name": author
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Midquest",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.midquest.com.br/logo-black.svg"
-      }
-    },
-    "articleSection": category,
-    "datePublished": datePublished,
-    "dateModified": dateModified
-  })}
-/>
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": url,
+      },
+      headline: title,
+      description: description,
+      image: image,
+      author: {
+        "@type": "Person",
+        name: author.name,
+        "@id": "urn:strapi:documentid:" + author.documentId,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Midquest",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://www.midquest.com.br/logo-black.svg",
+        },
+      },
+      articleSection: category,
+      datePublished: datePublished,
+      dateModified: dateModified,
+    })}
+  />
 </head>
