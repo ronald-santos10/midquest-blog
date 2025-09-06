@@ -24,7 +24,10 @@ const {
   <meta property="og:type" content="article" />
   <meta property="og:url" content={url} />
   <meta property="og:image" content={image} />
-  <meta property="og:logo" content="https://www.midquest.com.br/logo-black.svg" />
+  <meta
+    property="og:logo"
+    content="https://www.midquest.com.br/logo-black.svg"
+  />
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -33,32 +36,33 @@ const {
   <meta name="twitter:image" content={image} />
 
   <!-- JSON-LD Article -->
-  <script type="application/ld+json">
-    {JSON.stringify({
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Article",
-      "mainEntityOfPage": {
+      mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": url
+        "@id": url,
       },
-      "headline": title,
-      "description": description,
-      "image": image,
-      "author": {
+      headline: title,
+      description: description,
+      image: [image],
+      author: {
         "@type": "Person",
-        "name": author
+        name: author,
       },
-      "publisher": {
+      publisher: {
         "@type": "Organization",
-        "name": "Midquest",
-        "logo": {
+        name: "Midquest",
+        logo: {
           "@type": "ImageObject",
-          "url": "https://www.midquest.com.br/logo-black.svg"
-        }
+          url: "https://www.midquest.com.br/logo-black.svg",
+        },
       },
-      "articleSection": category,
-      "datePublished": datePublished,
-      "dateModified": dateModified
+      articleSection: category,
+      datePublished: datePublished,
+      dateModified: dateModified,
     })}
-  </script>
+  />
 </head>

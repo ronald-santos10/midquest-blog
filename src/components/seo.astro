@@ -20,7 +20,10 @@ const {
   <meta property="og:type" content="website" />
   <meta property="og:url" content={url} />
   <meta property="og:image" content={image} />
-  <meta property="og:logo" content="https://www.midquest.com.br/logo-black.svg" />
+  <meta
+    property="og:logo"
+    content="https://www.midquest.com.br/logo-black.svg"
+  />
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -29,21 +32,22 @@ const {
   <meta name="twitter:image" content={image} />
 
   <!-- JSON-LD WebSite -->
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": url,
-      "name": "Midquest",
-      "description": description,
-      "publisher": {
-        "@type": "Organization",
-        "name": "Midquest",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.midquest.com.br/logo-black.svg"
-        }
-      }
-    })}
-  </script>
+  <script
+    type="application/ld+json"
+    set:html={`{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "${url}",
+  "name": "Midquest",
+  "description": "${description}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Midquest",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.midquest.com.br/logo-black.svg"
+    }
+  }
+}`}
+  />
 </head>
